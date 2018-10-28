@@ -51,7 +51,7 @@
     </android.support.design.widget.CoordinatorLayout>
 
 
-    <ae.gov.dm.dsgmicroapp.kportal.realtimeinvertview.InvertOverlay
+    <com.helionmusic.invertoverlay.InvertOverlay
         android:id="@+id/invert_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

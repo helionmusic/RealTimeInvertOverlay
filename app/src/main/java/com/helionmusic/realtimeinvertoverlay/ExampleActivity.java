@@ -9,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.helionmusic.invertoverlay.InvertOverlay;
+
 public class ExampleActivity extends AppCompatActivity {
 
-    ae.gov.dm.dsgmicroapp.kportal.realtimeinvertview.InvertOverlay invertOverlay;
+    InvertOverlay invertOverlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

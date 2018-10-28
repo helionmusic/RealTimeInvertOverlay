@@ -1,4 +1,4 @@
-package ae.gov.dm.dsgmicroapp.kportal.realtimeinvertview;
+package com.helionmusic.invertoverlay;
 
 import android.content.Context;
 import android.graphics.Bitmap;
