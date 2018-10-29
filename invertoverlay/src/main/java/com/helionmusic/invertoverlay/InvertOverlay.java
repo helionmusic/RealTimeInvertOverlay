@@ -24,6 +24,10 @@ import android.view.animation.Animation;
  * Created by HelionMusic on 23,October,2018. Contact at contact@helionmusic.com
  */
 public class InvertOverlay extends View {
+
+    private static final String key_ioAttachToView = "ioAttachToView";
+
+
     ColorMatrixColorFilter colorFilter;
     Paint                  paint;
     View                   attachedView;
@@ -36,18 +40,33 @@ public class InvertOverlay extends View {
 
     public InvertOverlay(Context context) {
         super(context);
+        setAttributes(context, null);
         init();
     }
 
     public InvertOverlay(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setAttributes(context, attrs);
         init();
     }
 
     public InvertOverlay(Context context, @Nullable AttributeSet attrs,
                          int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setAttributes(context, attrs);
         init();
+    }
+
+
+    private void setAttributes(Context context, AttributeSet attrs) {
+        if (attrs == null) return;
+        String packageName    = "http://schemas.android.com/apk/res-auto";
+        int    attachedViewId = attrs.getAttributeResourceValue(packageName, key_ioAttachToView, 0);
+
+        View view = findViewById(attachedViewId);
+        if (view != null) {
+            attachedView = view;
+        }
     }
 
 
@@ -142,8 +161,10 @@ public class InvertOverlay extends View {
                                     Bitmap.Config.ARGB_8888);
 
                         updateInvertSource();
+
                         if (shouldInvalidate) {
                             invalidate();
+                            shouldInvalidate = false;
                         }
                     }
                 });

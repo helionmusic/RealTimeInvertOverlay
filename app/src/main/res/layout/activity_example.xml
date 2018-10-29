@@ -50,9 +50,9 @@
             app:srcCompat="@android:drawable/ic_dialog_email" />
     </android.support.design.widget.CoordinatorLayout>
 
-
     <com.helionmusic.invertoverlay.InvertOverlay
         android:id="@+id/invert_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </RelativeLayout>
