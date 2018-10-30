@@ -8,7 +8,6 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -44,13 +43,13 @@ public class InvertOverlay extends View {
         init();
     }
 
-    public InvertOverlay(Context context, @Nullable AttributeSet attrs) {
+    public InvertOverlay(Context context, AttributeSet attrs) {
         super(context, attrs);
         setAttributes(context, attrs);
         init();
     }
 
-    public InvertOverlay(Context context, @Nullable AttributeSet attrs,
+    public InvertOverlay(Context context, AttributeSet attrs,
                          int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setAttributes(context, attrs);

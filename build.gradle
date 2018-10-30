@@ -7,11 +7,13 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
 
@@ -22,6 +24,32 @@ allprojects {
     }
 }
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'RealTimeInvertOverlay'
+
+    publishedGroupId = 'com.helionmusic.library'
+    libraryName = 'RealTimeInvertOverlay'
+    artifact = 'invertoverlay'
+
+    libraryDescription = 'Android custom view to apply a color inversion filter on views below it.'
+
+    siteUrl = 'https://github.com/helionmusic/RealTimeInvertOverlay'
+    gitUrl = 'https://github.com/helionmusic/RealTimeInvertOverlay.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'helionmusic'
+    developerName = 'Helion Music'
+    developerEmail = 'contact@helionmusic.com'
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
