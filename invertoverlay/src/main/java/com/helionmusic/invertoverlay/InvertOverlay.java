@@ -96,34 +96,46 @@ public class InvertOverlay extends View {
     }
 
     public void toggleInversion() {
+        toggleInversion(true, 700);
+    }
+
+    public void toggleInversion(boolean withAnim) {
+        toggleInversion(withAnim, 700);
+    }
+
+    public void toggleInversion(boolean withAnim, int durationInMs) {
         isInverted = !isInverted;
 
         float fromAlpha = isInverted ? 0f : 1f;
         float toAlpha   = isInverted ? 1f : 0f;
 
-        AlphaAnimation alphaAnimation = new AlphaAnimation(fromAlpha, toAlpha);
-        alphaAnimation.setDuration(700);
-        alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-                if (isInverted)
-                    setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                if (!isInverted) {
-                    setVisibility(View.GONE);
-                    releaseBitmaps();
+        if (!withAnim) {
+            setVisibility(toAlpha == 0f ? GONE : VISIBLE);
+        } else {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(fromAlpha, toAlpha);
+            alphaAnimation.setDuration(durationInMs);
+            alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    if (isInverted)
+                        setVisibility(View.VISIBLE);
                 }
-            }
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    if (!isInverted) {
+                        setVisibility(View.GONE);
+                        releaseBitmaps();
+                    }
+                }
 
-            }
-        });
-        startAnimation(alphaAnimation);
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            startAnimation(alphaAnimation);
+        }
     }
 
     public boolean isInverted() {

@@ -37,7 +37,7 @@ ext {
     siteUrl = 'https://github.com/helionmusic/RealTimeInvertOverlay'
     gitUrl = 'https://github.com/helionmusic/RealTimeInvertOverlay.git'
 
-    libraryVersion = '0.1.0'
+    libraryVersion = '0.1.1'
 
     developerId = 'helionmusic'
     developerName = 'Helion Music'
